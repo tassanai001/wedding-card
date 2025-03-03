@@ -53,7 +53,7 @@ export default function RsvpForm() {
 
   return (
     <div className="rsvp-form-container">
-      <h2 style={{ fontSize: 24, color: '#634e4e', marginBottom: 20 }}>RSVP</h2>
+      {/* <h2 style={{ fontSize: 24, color: '#634e4e', marginBottom: 20 }}>RSVP</h2> */}
 
       {isSuccess ? (
         <div className="success-message" style={{ color: '#4CAF50', marginBottom: 20 }}>
@@ -66,7 +66,7 @@ export default function RsvpForm() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your Name"
+              placeholder="Enter your name"
               className="name-input"
               style={{
                 width: '100%',
