@@ -7,6 +7,7 @@ export default function Home() {
   // Client-side only code
   const [isMounted, setIsMounted] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0); // Add key for animation reset
   const videoRef = useRef<HTMLVideoElement>(null);
   const autoSwipeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -22,6 +23,7 @@ export default function Home() {
   const changePage = (newPage: number) => {
     if (newPage !== currentPage) {
       setCurrentPage(newPage);
+      setAnimationKey(prev => prev + 1); // Increment key to reset animations
       restartVideo();
 
       // Reset the auto-swipe timer whenever page changes manually
@@ -149,7 +151,7 @@ export default function Home() {
       {/* Content pages */}
       <div className="content-container">
         {/* Content page 1 */}
-        <div className={`content ${currentPage === 0 ? 'active' : 'inactive'}`}>
+        <div key={`page-0-${animationKey}`} className={`content ${currentPage === 0 ? 'active' : 'inactive'}`}>
           <p>The Wedding Of</p>
           <p style={{ paddingTop: 64 }}>Num</p>
           <p>&</p>
@@ -160,10 +162,10 @@ export default function Home() {
         </div>
 
         {/* Content page 2 */}
-        <div className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
+        <div key={`page-1-${animationKey}`} className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
           <p style={{ paddingTop: 64 }}>We cordially invite you to honor us with your presence at our wedding ceremony.</p>
           <p style={{ paddingTop: 64 }}>Parichat Hongon</p>
-          <p>&</p>
+
           <p>Tassanai Yeeton</p>
           <p style={{ paddingTop: 64 }}>Time 08.29 am.</p>
           <p style={{ paddingTop: 64 }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
