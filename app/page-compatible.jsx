@@ -7,8 +7,8 @@ export default function Home() {
   // Client-side only code
   const [isMounted, setIsMounted] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const autoSwipeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef(null);
+  const autoSwipeTimerRef = useRef(null);
 
   // Function to restart the video
   const restartVideo = () => {
@@ -19,16 +19,16 @@ export default function Home() {
   };
 
   // Function to change page with video restart
-  const changePage = (newPage: number) => {
+  const changePage = (newPage) => {
     if (newPage !== currentPage) {
       setCurrentPage(newPage);
       restartVideo();
-
+      
       // Reset the auto-swipe timer whenever page changes manually
       if (autoSwipeTimerRef.current) {
         clearTimeout(autoSwipeTimerRef.current);
       }
-
+      
       // Set a new auto-swipe timer if we're on page 0
       if (newPage === 0) {
         startAutoSwipeTimer();
@@ -42,9 +42,9 @@ export default function Home() {
     if (autoSwipeTimerRef.current) {
       clearTimeout(autoSwipeTimerRef.current);
     }
-
+    
     // Set a new timer for 10 seconds
-    autoSwipeTimerRef.current = setTimeout(() => {
+    autoSwipeTimerRef.current = setTimeout(function() {
       if (currentPage === 0) {
         changePage(1);
       }
@@ -52,28 +52,28 @@ export default function Home() {
   };
 
   // Initialize on client-side only
-  useEffect(() => {
+  useEffect(function() {
     setIsMounted(true);
 
     // Touch event handlers
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const minSwipeDistance = 50;
+    var touchStartX = 0;
+    var touchEndX = 0;
+    var minSwipeDistance = 50;
 
-    const handleTouchStart = (e: TouchEvent) => {
+    var handleTouchStart = function(e) {
       touchStartX = e.changedTouches[0].screenX;
     };
 
-    const handleTouchEnd = (e: TouchEvent) => {
+    var handleTouchEnd = function(e) {
       touchEndX = e.changedTouches[0].screenX;
       handleSwipe();
     };
 
     // Handle swipe logic
-    const handleSwipe = () => {
-      const distance = touchStartX - touchEndX;
-      const isLeftSwipe = distance > minSwipeDistance;
-      const isRightSwipe = distance < -minSwipeDistance;
+    var handleSwipe = function() {
+      var distance = touchStartX - touchEndX;
+      var isLeftSwipe = distance > minSwipeDistance;
+      var isRightSwipe = distance < -minSwipeDistance;
 
       if (isLeftSwipe && currentPage < 1) {
         // Swipe left to go to next page
@@ -85,14 +85,14 @@ export default function Home() {
     };
 
     // Add event listeners
-    const container = document.querySelector('.container');
+    var container = document.querySelector('.container');
     if (container) {
       container.addEventListener('touchstart', handleTouchStart);
       container.addEventListener('touchend', handleTouchEnd);
     }
 
     // Optional: Add keyboard navigation
-    const handleKeyDown = (e: KeyboardEvent) => {
+    var handleKeyDown = function(e) {
       if (e.key === 'ArrowRight' && currentPage < 1) {
         changePage(1);
       } else if (e.key === 'ArrowLeft' && currentPage > 0) {
@@ -108,13 +108,13 @@ export default function Home() {
     }
 
     // Cleanup
-    return () => {
+    return function() {
       if (container) {
-        container.removeEventListener('touchstart', handleTouchStart as EventListener);
-        container.removeEventListener('touchend', handleTouchEnd as EventListener);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
       }
       window.removeEventListener('keydown', handleKeyDown);
-
+      
       // Clear the auto-swipe timer when component unmounts
       if (autoSwipeTimerRef.current) {
         clearTimeout(autoSwipeTimerRef.current);
@@ -123,18 +123,18 @@ export default function Home() {
   }, [currentPage]); // Include currentPage in dependencies
 
   // Handle dot indicator click
-  const handleDotClick = (index: number) => {
+  var handleDotClick = function(index) {
     changePage(index);
   };
 
   return (
     <div className="container">
-      <video
+      <video 
         ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
+        autoPlay 
+        muted 
+        loop 
+        playsInline 
         id="bg-video"
       >
         <source src="/videos/pink-flower.mp4" type="video/mp4" />
@@ -144,7 +144,7 @@ export default function Home() {
       {/* Content pages */}
       <div className="content-container">
         {/* Content page 1 */}
-        <div className={`content ${currentPage === 0 ? 'active' : 'inactive'}`}>
+        <div className={"content " + (currentPage === 0 ? 'active' : 'inactive')}>
           <p>The Wedding Of</p>
           <p style={{ paddingTop: 64 }}>Num</p>
           <p>&</p>
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
 
         {/* Content page 2 */}
-        <div className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
+        <div className={"content " + (currentPage === 1 ? 'active' : 'inactive')}>
           <p style={{ paddingTop: 64 }}>The Wedding Of</p>
           <p style={{ paddingTop: 64 }}>Num</p>
           <p>&</p>
@@ -170,12 +170,12 @@ export default function Home() {
       {isMounted && (
         <div className="page-indicator">
           <div
-            className={`indicator-dot ${currentPage === 0 ? 'active' : ''}`}
-            onClick={() => handleDotClick(0)}
+            className={"indicator-dot " + (currentPage === 0 ? 'active' : '')}
+            onClick={function() { handleDotClick(0); }}
           />
           <div
-            className={`indicator-dot ${currentPage === 1 ? 'active' : ''}`}
-            onClick={() => handleDotClick(1)}
+            className={"indicator-dot " + (currentPage === 1 ? 'active' : '')}
+            onClick={function() { handleDotClick(1); }}
           />
         </div>
       )}
