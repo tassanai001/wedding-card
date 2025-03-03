@@ -8,6 +8,7 @@ export default function RsvpForm() {
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [errorDetails, setErrorDetails] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ export default function RsvpForm() {
       setMessage('');
       setIsError(false);
       setIsSuccess(false);
+      setErrorDetails('');
 
       const response = await fetch('/api/rsvp', {
         method: 'POST',
@@ -41,6 +43,10 @@ export default function RsvpForm() {
       } else {
         setIsError(true);
         setMessage(data.error || 'Failed to submit RSVP. Please try again.');
+        if (data.details) {
+          setErrorDetails(data.details);
+          console.error('Error details:', data.details);
+        }
       }
     } catch (error) {
       console.error('Error submitting RSVP:', error);
@@ -80,8 +86,15 @@ export default function RsvpForm() {
           </div>
 
           {isError && (
-            <div className="error-message" style={{ color: '#F44336', marginBottom: 15 }}>
-              {message}
+            <div>
+              <div className="error-message" style={{ color: '#F44336', marginBottom: 15 }}>
+                {message}
+              </div>
+              {errorDetails && (
+                <div className="error-details" style={{ color: '#F44336', marginBottom: 15 }}>
+                  {errorDetails}
+                </div>
+              )}
             </div>
           )}
 
