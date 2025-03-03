@@ -32,10 +32,8 @@ export default function Home() {
         clearTimeout(autoSwipeTimerRef.current);
       }
 
-      // Set a new auto-swipe timer if we're on page 0
-      if (newPage === 0) {
-        startAutoSwipeTimer();
-      }
+      // Always restart the auto-swipe timer after changing pages
+      startAutoSwipeTimer();
     }
   };
 
@@ -47,11 +45,11 @@ export default function Home() {
     }
 
     // Set a new timer for 10 seconds
-    // autoSwipeTimerRef.current = setTimeout(() => {
-    //   if (currentPage === 0) {
-    //     changePage(1);
-    //   }
-    // }, 10000); // 10 seconds
+    autoSwipeTimerRef.current = setTimeout(() => {
+      // Move to the next page, or back to the first page if we're at the end
+      const nextPage = (currentPage + 1) % 2; // Assuming there are 2 pages (0 and 1)
+      changePage(nextPage);
+    }, 10000); // 10 seconds
   };
 
   // Initialize on client-side only
@@ -111,9 +109,7 @@ export default function Home() {
     window.addEventListener('keydown', handleKeyDown);
 
     // Start the auto-swipe timer when component mounts
-    if (currentPage === 0) {
-      startAutoSwipeTimer();
-    }
+    startAutoSwipeTimer();
 
     // Cleanup
     return () => {
