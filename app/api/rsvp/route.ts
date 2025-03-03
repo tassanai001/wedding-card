@@ -33,6 +33,7 @@ export async function POST(request: Request) {
     });
 
     // Append data to the spreadsheet - using the provided spreadsheet ID
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: '1EjU6skKoFkTSbif7HaUwOBgk-WaDgd2dBxuhPRcVquY', // Using the provided Google Sheet ID
       range: 'A:A', // Only using column A for names
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
       message: 'Thank you for your RSVP!'
     }, { status: 201 });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error saving RSVP:', error);
     return NextResponse.json(
