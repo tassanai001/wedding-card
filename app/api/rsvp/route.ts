@@ -15,7 +15,10 @@ export async function POST(request: Request) {
 
     // Configure Google Auth
     const auth = new google.auth.GoogleAuth({
-      credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS!),
+      credentials: {
+        client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n')
+      },
       scopes: [
         'https://www.googleapis.com/auth/drive',
         'https://www.googleapis.com/auth/drive.file',
@@ -57,15 +60,12 @@ export async function POST(request: Request) {
       code: error.code,
       response: error.response?.data || 'No response data'
     });
-    
+
     // Check if it's an auth error
-    if (error.message?.includes('auth') || error.message?.includes('DECODER routines')) {
+    if (error.message?.includes('auth')) {
       console.error('Authentication error detected. Check your Google API credentials.');
-      console.error('GOOGLE_CREDENTIALS exists:', !!process.env.GOOGLE_CREDENTIALS);
-      
-      if (error.message?.includes('DECODER routines')) {
-        console.error('This is a private key format error. Make sure your credentials JSON is properly formatted.');
-      }
+      console.error('GOOGLE_CLIENT_EMAIL exists:', !!process.env.GOOGLE_CLIENT_EMAIL);
+      console.error('GOOGLE_PRIVATE_KEY exists:', !!process.env.GOOGLE_PRIVATE_KEY);
       // Don't log the actual values for security reasons
     }
 
