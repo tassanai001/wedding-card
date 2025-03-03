@@ -46,11 +46,11 @@ export default function Home() {
     }
 
     // Set a new timer for 10 seconds
-    autoSwipeTimerRef.current = setTimeout(() => {
-      if (currentPage === 0) {
-        changePage(1);
-      }
-    }, 10000); // 10 seconds
+    // autoSwipeTimerRef.current = setTimeout(() => {
+    //   if (currentPage === 0) {
+    //     changePage(1);
+    //   }
+    // }, 10000); // 10 seconds
   };
 
   // Initialize on client-side only
@@ -152,25 +152,44 @@ export default function Home() {
       <div className="content-container">
         {/* Content page 1 */}
         <div key={`page-0-${animationKey}`} className={`content ${currentPage === 0 ? 'active' : 'inactive'}`}>
-          <p>The Wedding Of</p>
-          <p style={{ paddingTop: 64 }}>Num</p>
-          <p>&</p>
-          <p>Art</p>
-          <p style={{ paddingTop: 64 }}>We Invite You To Celebrate Our Wedding</p>
-          <p style={{ paddingTop: 64 }}>Saturday</p>
-          <p style={{ paddingTop: 64 }}>15 - March- 2025</p>
+          <p style={{ fontSize: 50, color: '#634e4e', textShadow: 'unset' }}>The Wedding Of</p>
+          <div className="wreath-container">
+            <div className="floral-wreath">
+              <Image src="/flower.svg" alt="Flower decoration" width={500} height={500} className="wreath-image" />
+              <div className="names-in-wreath">
+                <p style={{ textShadow: 'unset' }} className="bride-name">Num</p>
+                <p style={{ textShadow: 'unset' }} className="and-symbol">&</p>
+                <p style={{ textShadow: 'unset' }} className="groom-name">Art</p>
+              </div>
+            </div>
+          </div>
+          <p style={{ textShadow: 'unset', paddingTop: 10, color: '#634e4e' }}>We Invite You To Celebrate Our<br />Wedding</p>
+          <p style={{ textShadow: 'unset', paddingTop: 20, paddingBottom: 20, color: '#cb3740' }}>Saturday</p>
+          <div className="divider-container">
+            <hr className="divider-line" />
+          </div>
+          <p style={{ textShadow: 'unset', color: '#cb3740', paddingBottom: 5, paddingTop: 5 }}>15 - March- 2025</p>
+          <div className="divider-container">
+            <hr className="divider-line" />
+          </div>
         </div>
 
         {/* Content page 2 */}
         <div key={`page-1-${animationKey}`} className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
-          <p style={{ paddingTop: 64 }}>We cordially invite you to honor us with your presence at our wedding ceremony.</p>
-          <p style={{ paddingTop: 64 }}>Parichat Hongon</p>
-
-          <p>Tassanai Yeeton</p>
-          <p style={{ paddingTop: 64 }}>Time 08.29 am.</p>
-          <p style={{ paddingTop: 64 }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
-          <p style={{ paddingTop: 64 }}>Time 10.29 am.</p>
-          <p style={{ paddingTop: 64 }}>Im En Ville</p>
+          <p>We cordially invite you to honor us with your presence at our wedding ceremony.</p>
+          <div className="wreath-container">
+            <div className="floral-wreath">
+              <div className="names-in-wreath full-names">
+                <p className="bride-name">Parichat Hongon</p>
+                <Image src="/ring.svg" alt="Wedding Rings" width={40} height={40} className="ring-image" />
+                <p className="groom-name">Tassanai Yeeton</p>
+              </div>
+            </div>
+          </div>
+          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Time 08.29 am.</p>
+          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
+          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Time 10.29 am.</p>
+          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Im En Ville</p>
         </div>
       </div>
 
