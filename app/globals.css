@@ -286,6 +286,17 @@ p {
   width: 100%;
   height: 100%;
   z-index: 1;
+  animation: rotateFlower 60s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotateFlower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .names-in-wreath {
