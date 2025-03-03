@@ -60,12 +60,17 @@ export default function Home() {
     let touchEndX = 0;
     const minSwipeDistance = 50;
 
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.changedTouches[0].screenX;
+    // Use Event instead of TouchEvent for better compatibility
+    const handleTouchStart = (e: Event) => {
+      // Cast to TouchEvent to access specific properties
+      const touchEvent = e as TouchEvent;
+      touchStartX = touchEvent.changedTouches[0].screenX;
     };
 
-    const handleTouchEnd = (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].screenX;
+    const handleTouchEnd = (e: Event) => {
+      // Cast to TouchEvent to access specific properties
+      const touchEvent = e as TouchEvent;
+      touchEndX = touchEvent.changedTouches[0].screenX;
       handleSwipe();
     };
 
@@ -110,8 +115,8 @@ export default function Home() {
     // Cleanup
     return () => {
       if (container) {
-        container.removeEventListener('touchstart', handleTouchStart as EventListener);
-        container.removeEventListener('touchend', handleTouchEnd as EventListener);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
       }
       window.removeEventListener('keydown', handleKeyDown);
 
@@ -156,13 +161,14 @@ export default function Home() {
 
         {/* Content page 2 */}
         <div className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
-          <p style={{ paddingTop: 64 }}>The Wedding Of</p>
-          <p style={{ paddingTop: 64 }}>Num</p>
+          <p style={{ paddingTop: 64 }}>We cordially invite you to honor us with your presence at our wedding ceremony.</p>
+          <p style={{ paddingTop: 64 }}>Parichat Hongon</p>
           <p>&</p>
-          <p>Art</p>
-          <p style={{ paddingTop: 64 }}>We Invite You To Celebrate Our Wedding</p>
-          <p style={{ paddingTop: 64 }}>Saturday</p>
-          <p style={{ paddingTop: 64 }}>15 - March- 2025</p>
+          <p>Tassanai Yeeton</p>
+          <p style={{ paddingTop: 64 }}>Time 08.29 am.</p>
+          <p style={{ paddingTop: 64 }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
+          <p style={{ paddingTop: 64 }}>Time 10.29 am.</p>
+          <p style={{ paddingTop: 64 }}>Im En Ville</p>
         </div>
       </div>
 
