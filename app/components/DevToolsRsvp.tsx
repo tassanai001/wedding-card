@@ -7,7 +7,7 @@ export default function DevToolsRsvp() {
   const [isDevToolsOpen, setIsDevToolsOpen] = useState(false);
 
   // Only show in development environment
-  const isDev = process.env.NODE_ENV === 'development';
+  // const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
     // Register keyboard shortcut (Alt+R) to toggle dev tools
@@ -22,7 +22,7 @@ export default function DevToolsRsvp() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  if (!isDev) return null;
+  // if (!isDev) return null;
 
   return (
     <>
