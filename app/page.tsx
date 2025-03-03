@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import DevToolsRsvp from "./components/DevToolsRsvp";
 
 export default function Home() {
   // Client-side only code
@@ -199,16 +200,18 @@ export default function Home() {
       {/* Page indicator dots */}
       {isMounted && (
         <div className="page-indicator">
-          <div
-            className={`indicator-dot ${currentPage === 0 ? 'active' : ''}`}
-            onClick={() => handleDotClick(0)}
-          />
-          <div
-            className={`indicator-dot ${currentPage === 1 ? 'active' : ''}`}
-            onClick={() => handleDotClick(1)}
-          />
+          {[0, 1].map((index) => (
+            <div
+              key={index}
+              className={`indicator-dot ${currentPage === index ? 'active' : ''}`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
         </div>
       )}
+
+      {/* Dev Tools RSVP Component - only visible in development mode */}
+      <DevToolsRsvp />
     </div>
   );
 }
