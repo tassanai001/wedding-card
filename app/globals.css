@@ -370,3 +370,19 @@ p {
     opacity: 1;
   }
 }
+
+.divider-line-2 {
+  border-top: 1px solid #bbb;
+  width: 0;
+  animation: expandLine2 1.5s forwards ease-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes expandLine2 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}

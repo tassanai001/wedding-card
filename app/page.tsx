@@ -176,20 +176,23 @@ export default function Home() {
 
         {/* Content page 2 */}
         <div key={`page-1-${animationKey}`} className={`content ${currentPage === 1 ? 'active' : 'inactive'}`}>
-          <p>We cordially invite you to honor us with your presence at our wedding ceremony.</p>
-          <div className="wreath-container">
-            <div className="floral-wreath">
-              <div className="names-in-wreath full-names">
-                <p className="bride-name">Parichat Hongon</p>
-                <Image src="/ring.svg" alt="Wedding Rings" width={40} height={40} className="ring-image" />
-                <p className="groom-name">Tassanai Yeeton</p>
+          <p style={{ fontSize: 30, color: '#634e4e', textShadow: 'unset' }}>We cordially invite you to<br />honor us with your presence at<br />our wedding ceremony.</p>
+          <div className="wreath-container" style={{ maxWidth: '400px', marginTop: 40 }}>
+            <div className="floral-wreath" style={{ height: 'unset' }}>
+              <div className="names-in-wreath full-names" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                <p style={{ fontSize: 30, color: '#634e4e', textShadow: 'unset', margin: 0 }} className="bride-name">Parichat Hongon</p>
+                <Image src="/ring.svg" alt="Wedding Rings" width={60} height={60} className="ring-image" />
+                <p style={{ fontSize: 30, color: '#634e4e', textShadow: 'unset', margin: 0 }} className="groom-name">Tassanai Yeeton</p>
               </div>
             </div>
           </div>
-          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Time 08.29 am.</p>
-          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
-          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Time 10.29 am.</p>
-          <p style={{ paddingTop: 64, textShadow: 'unset' }}>Im En Ville</p>
+          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#c23a50' }}>Time 08.29 am.</p>
+          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#634e4e' }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
+          {/* <div className="divider-container">
+            <hr className="divider-line-2" />
+          </div> */}
+          <p style={{ paddingTop: 50, textShadow: 'unset', color: '#c23a50' }}>Time 10.29 am.</p>
+          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#634e4e' }}>Im En Ville</p>
         </div>
       </div>
 
