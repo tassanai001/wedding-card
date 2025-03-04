@@ -50,6 +50,7 @@ export default function Home() {
       const nextPage = (currentPage + 1) % 2; // Assuming there are 2 pages (0 and 1)
       changePage(nextPage);
     }, 10000); // 10 seconds
+
   };
 
   // Initialize on client-side only
@@ -149,14 +150,14 @@ export default function Home() {
       <div className="content-container">
         {/* Content page 1 */}
         <div key={`page-0-${animationKey}`} className={`content ${currentPage === 0 ? 'active' : 'inactive'}`}>
-          <p style={{ fontSize: 50, color: '#634e4e', textShadow: 'unset' }}>The Wedding Of</p>
+          <p style={{ fontSize: 50, color: '#634e4e', textShadow: 'unset', fontWeight: 'normal' }}>The Wedding Of</p>
           <div className="wreath-container">
             <div className="floral-wreath">
               <Image src="/flower.svg" alt="Flower decoration" width={500} height={500} className="wreath-image" />
               <div className="names-in-wreath">
-                <p style={{ textShadow: 'unset' }} className="bride-name">Num</p>
-                <p style={{ textShadow: 'unset' }} className="and-symbol">&</p>
-                <p style={{ textShadow: 'unset' }} className="groom-name">Art</p>
+                <p style={{ textShadow: 'unset', fontFamily: "'Corinthia', cursive", fontSize: '4em' }} className="bride-name">Num</p>
+                <p style={{ textShadow: 'unset', fontFamily: "'Corinthia', cursive", fontSize: '3em', margin: -35 }} className="and-symbol">&</p>
+                <p style={{ textShadow: 'unset', fontFamily: "'Corinthia', cursive", fontSize: '4em' }} className="groom-name">Art</p>
               </div>
             </div>
           </div>
@@ -183,13 +184,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#c23a50' }}>Time 08.29 am.</p>
-          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#634e4e' }}>Wat Ratchabophit Sathitmahasimaram Ratchaworawihan</p>
-          {/* <div className="divider-container">
-            <hr className="divider-line-2" />
-          </div> */}
-          <p style={{ paddingTop: 50, textShadow: 'unset', color: '#c23a50' }}>Time 10.29 am.</p>
-          <p style={{ paddingTop: 20, textShadow: 'unset', color: '#634e4e' }}>Im En Ville</p>
+          <p style={{ paddingTop: 25, textShadow: 'unset', color: '#c23a50', fontSize: 25 }}>08.29 am.</p>
+          <p style={{ paddingTop: 25, textShadow: 'unset', color: '#634e4e', fontSize: 25 }}>Wat Ratchabophit Sathitmahasimaram<br/> Ratchaworawihan</p>
+
+          <div style={{ paddingTop: 25, display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            <p style={{ textShadow: 'unset', color: '#634e4e', margin: 0, fontSize: 25 }}> <span style={{ textShadow: 'unset', margin: 0, fontSize: 25, color: '#c23a50' }}>10:19 am.</span><br />Ring ceremony</p>
+            <p style={{ textShadow: 'unset', color: '#634e4e', margin: 0, fontSize: 25 }}><span style={{ textShadow: 'unset', margin: 0, fontSize: 25, color: '#c23a50' }}>11:00 am.</span><br />Meal/Dining</p>
+          </div>
+          <p style={{ paddingTop: 25, textShadow: 'unset', color: '#634e4e' }}>Im En Ville Restaurant</p>
         </div>
       </div>
 

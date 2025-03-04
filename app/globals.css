@@ -1,5 +1,7 @@
 /* Import Pompiere font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+/* Import Corinthia font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
 
 @import "tailwindcss";
 
@@ -145,7 +147,9 @@ body {
 }
 
 .bride-name, .groom-name {
+  font-size: 2.5em;
   font-weight: 400;
+  font-family: 'Corinthia', cursive;
 }
 
 .ring-image {
@@ -330,11 +334,13 @@ p {
 .bride-name, .groom-name {
   font-size: 2.5em;
   font-weight: 400;
+  font-family: 'Corinthia', cursive;
 }
 
 .and-symbol {
   font-size: 2em;
   margin: 5px 0;
+  font-family: 'Corinthia', cursive;
 }
 
 /* Mobile-first: Default styles work for mobile */
