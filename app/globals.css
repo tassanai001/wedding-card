@@ -29,6 +29,16 @@ body {
   /* Typical mobile width (e.g., iPhone 12) */
   /* max-width: 414px;  */
   height: 100vh;
+}
+
+/* Bounce animation for location pin */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
   /* Typical mobile height, maintaining ~16:9 ratio */
   /* max-height: 736px;  */
   overflow: hidden;

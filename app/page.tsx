@@ -185,13 +185,66 @@ export default function Home() {
             </div>
           </div>
           <p style={{ paddingTop: 25, textShadow: 'unset', color: '#c23a50', fontSize: 25 }}>08.29 am.</p>
-          <p style={{ paddingTop: 25, textShadow: 'unset', color: '#634e4e', fontSize: 25 }}>Wat Ratchabophit Sathitmahasimaram<br/> Ratchaworawihan</p>
+          <div
+            style={{
+              paddingTop: 25,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '5px',
+              cursor: 'pointer'
+            }}
+            onClick={() => window.open('https://www.google.com/maps/place/Wat+Ratchabophit+Sathitmahasimaram+Ratchaworawihan/@13.7492388,100.4951842,17z/data=!4m12!1m5!3m4!2zMTPCsDQ0JzU3LjMiTiAxMDDCsDI5JzUxLjkiRQ!8m2!3d13.7492388!4d100.4977591!3m5!1s0x30e2991039598b6b:0xeaf539e28e042574!8m2!3d13.7491085!4d100.497346!16s%2Fm%2F0czbx1x?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D', '_blank')}
+          >
+
+            <p style={{ display: 'flex', textShadow: 'unset', color: '#634e4e', fontSize: 25, margin: 0 }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="#c23a50"
+                style={{
+                  marginRight: '5px',
+                  animation: 'bounce 1.5s infinite'
+                }}
+              >
+                <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+              </svg>              Wat Ratchabophit Sathitmahasimaram<br /> Ratchaworawihan
+            </p>
+          </div>
 
           <div style={{ paddingTop: 25, display: 'flex', justifyContent: 'center', gap: '20px' }}>
             <p style={{ textShadow: 'unset', color: '#634e4e', margin: 0, fontSize: 25 }}> <span style={{ textShadow: 'unset', margin: 0, fontSize: 25, color: '#c23a50' }}>10:19 am.</span><br />Ring ceremony</p>
             <p style={{ textShadow: 'unset', color: '#634e4e', margin: 0, fontSize: 25 }}><span style={{ textShadow: 'unset', margin: 0, fontSize: 25, color: '#c23a50' }}>11:00 am.</span><br />Meal/Dining</p>
           </div>
-          <p style={{ paddingTop: 25, textShadow: 'unset', color: '#634e4e' }}>Im En Ville Restaurant</p>
+          <div
+            style={{
+              paddingTop: 25,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '5px',
+              cursor: 'pointer'
+            }}
+            onClick={() => window.open('https://www.google.com/maps?sca_esv=c01db97a3680db60&output=search&q=Im+En+Ville+Restaurant&source=lnms&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBq9_MDeSwocf8-rceDq6x_7NGDnggjwWSPxogjVTDBxgDN1PA_BcNa_Vr-u013PwbF80s5SF0SK-mdfjluGcYGgi_TP3dDiwczzfW4jorqyam5OjeervCJvJ_NQaBy0VIm5iWp6VDKIg81HteTb204L8EEGiNGVNSvLV02M_7FPfvv2ISw&entry=mc&ved=1t:200715&ictx=111', '_blank')}
+          >
+            <p style={{ display: 'flex', textShadow: 'unset', color: '#634e4e', fontSize: 25, margin: 0 }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="#c23a50"
+                style={{
+                  marginRight: '5px',
+                  animation: 'bounce 1.5s infinite'
+                }}
+              >
+                <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+              </svg>Im En Ville Restaurant
+            </p>
+          </div>
         </div>
       </div>
 
