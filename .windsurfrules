@@ -1,0 +1,81 @@
+### 🔄 Project Awareness & Context
+- Always check `PLANNING.md` and `OVERVIEW.md` at the start of a new conversation to understand the wedding card's architecture, goals, and constraints.
+- Review `TASK.md` before starting any new task to identify active work, backlog items, and milestones.
+- Recognize the dual project nature: The repository contains both a wedding invitation application and a Google Photos gallery project.
+- Keep the wedding date (March 15, 2025) in mind when making any date-related changes.
+
+### 🧱 Code Structure & Modularity
+- Follow Next.js App Router conventions for component organization and routing.
+- Maintain separation between frontend components and API routes.
+- Keep API routes focused on single responsibilities (e.g., RSVP handling, photo fetching).
+- Organize components by feature with shared components in a common directory.
+- Limit component files to 300 lines - split larger components into smaller, focused ones.
+
+### 🎨 Styling & Design Principles
+- Use a consistent design language with floral elements matching the wedding theme.
+- Ensure mobile-first responsive design for all components and pages.
+- Implement touch and keyboard navigation for accessibility across devices.
+- Maintain consistent animation timing for page transitions (currently 10 seconds).
+- Use Tailwind CSS for styling components (referenced in devDependencies).
+
+### 🔒 API & Authentication
+- Never hardcode Google API credentials - always use environment variables.
+- Follow OAuth 2.0 best practices for Google Photos API integration.
+- Implement proper error handling for API calls to Google Sheets and Google Photos.
+- Cache API responses appropriately to minimize quota usage and improve performance.
+
+### 🧪 Testing & Reliability
+- Test on both mobile and desktop viewports for all new features.
+- Verify RSVP functionality with test submissions to the Google Sheet.
+- Check OAuth flow when making changes to authentication.
+- Test navigation (touch, keyboard, auto-swiping) after any UI changes.
+- Run `npm run lint` before considering any task complete.
+
+### ✅ Task Management
+- Update `TASK.md` after completing any task, marking it as done.
+- Add discovered tasks to the "Discovered During Work" section in `TASK.md`.
+- Follow the milestone progression outlined in the backlog.
+- Prioritize Milestone 0 tasks (refactoring existing codebase) before new features.
+
+### 📚 Documentation
+- Update `README.md` when adding new features or changing setup requirements.
+- Document environment variables needed for Google API integration.
+- Add JSDoc comments to all functions and components.
+- Include setup instructions for both the wedding card and Google Photos gallery.
+
+### 🧠 Development Workflow
+- Use TypeScript for all new code and gradually convert existing JavaScript.
+- Follow Next.js best practices for data fetching and component structure.
+- Keep dependencies updated to latest stable versions compatible with Next.js 15.
+- Maintain ESLint rules for consistent code quality.
+- Optimize images and videos for web delivery to ensure fast loading times.
+
+### 🛠️ Tech Stack Adherence
+- **Frontend:** Next.js 15.2.0, React 19.0.0, TypeScript
+- **Styling:** Custom CSS with Tailwind
+- **APIs:** Google Sheets API, Google Photos Library API
+- **Authentication:** Google Auth, NextAuth for OAuth
+- **Data Fetching:** SWR, axios for HTTP requests
+
+### 🔄 Integration Rules
+- Ensure Google Sheets integration works properly for RSVP submissions.
+- Test Google Photos API integration thoroughly when implementing gallery features.
+- Verify environment variables are properly set before running any integration tests.
+- Handle API rate limits gracefully, especially for Google Photos API.
+
+After implementing tasks in the wedding-card project, the following documentation updates are required:
+
+1. README.md updates:
+   - Document new features with usage instructions
+   - Update setup requirements if dependencies changed
+   - Add screenshots/GIFs of new UI elements
+   - Document new environment variables
+   - Update project status and completion percentage
+   - Maintain a changelog section with dated entries
+
+2. TASK.md updates:
+   - Mark completed tasks with [x] and completion date
+   - Add brief implementation notes under completed tasks
+   - Document technical decisions and approaches
+   - Create an Implementation Notes section for complex features
+   - Document API integrations with setup instructions

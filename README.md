@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# README.md
 
-## Getting Started
+## Wedding Card Application
 
-First, run the development server:
+This application is a digital wedding invitation for Num & Art, designed to provide an interactive experience for guests.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Interactive multi-page invitation
+-   Automatic page swiping
+-   Touch and keyboard navigation
+-   Background video
+-   RSVP functionality
+-   Google Sheets integration for RSVP responses
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   Next.js (React)
+-   TypeScript
+-   CSS
+-   Google Sheets API
 
-## Learn More
+### Setup
 
-To learn more about Next.js, take a look at the following resources:
+1.  Ensure you have Node.js and npm installed.
+2.  Clone the repository.
+3.  Install dependencies: `npm install`
+4.  Set up Google API credentials and add them to `.env` file.  *(Provide specific instructions on setting up Google API credentials)*
+5.  Run the development server: `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*(Provide deployment instructions, potentially mentioning Vercel or other hosting platforms)*
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Google Photos Gallery
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This Next.js application displays a photo gallery fetched from Google Photos.
+
+### Features
+
+-   OAuth 2.0 authentication with Google
+-   Fetching and displaying media items from Google Photos
+-   Responsive grid layout
+-   Download and social sharing options (in progress)
+
+### Tech Stack
+
+-   Next.js (React)
+-   TypeScript
+-   Tailwind CSS
+-   NextAuth
+-   Google Photos Library API
+-   axios
+-   SWR
+
+### Setup
+
+1.  Ensure you have Node.js and npm installed.
+2.  Clone the repository.
+3.  Install dependencies: `npm install`
+4.  Set up Google Cloud credentials for the Google Photos Library API and NextAuth. Add the credentials to `.env.local`.  *(Provide detailed instructions on setting up Google Cloud credentials)*
+5.  Run the development server: `npm run dev`
+
+### Deployment
+
+*(Provide deployment instructions, typically involving setting environment variables on the hosting platform and deploying the Next.js application)*
