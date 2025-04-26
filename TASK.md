@@ -8,14 +8,32 @@
 ### Active Work
 
 -   **Milestone 0: Revamp & Refactoring Existing Codebase**
-    -   [ ] Audit current folder structure, remove unused files/components
-    -   [ ] Standardize naming conventions (PascalCase for components, camelCase for hooks/utilities)
-    -   [ ] Consolidate shared styles into a global Tailwind config or CSS module
-    -   [ ] Replace any hard-coded values with environment variables or config files
-    -   [ ] Ensure ESLint/Prettier are set up and run across the codebase (`npm run lint` / `npm run format`)
-    -   [ ] Refactor common logic into reusable hooks or utility functions under `lib/`
+    -   [x] Audit current folder structure, remove unused files/components (completed 2025-04-26)
+        - Analyzed project structure and identified redundant files
+        - Removed page-compatible.jsx in favor of TypeScript implementation
+        - Organized components into feature-based directories
+    -   [x] Standardize naming conventions (PascalCase for components, camelCase for hooks/utilities) (completed 2025-04-26)
+        - Applied PascalCase for all component files
+        - Used camelCase for utility functions and hooks
+    -   [x] Consolidate shared styles into a global Tailwind config or CSS module (completed 2025-04-26)
+        - Created tailwind.config.js with theme customization
+        - Updated globals.css to use Tailwind directives
+        - Moved inline styles to Tailwind classes where appropriate
+    -   [x] Replace any hard-coded values with environment variables or config files (completed 2025-04-26)
+        - Created lib/config.ts to manage environment variables
+        - Moved Google Sheet ID to environment variable
+        - Added documentation for required environment variables
+    -   [x] Ensure ESLint/Prettier are set up and run across the codebase (completed 2025-04-26)
+        - Fixed TypeScript lint errors in components
+        - Updated PostCSS configuration for Tailwind
+    -   [x] Refactor common logic into reusable hooks or utility functions under `lib/` (completed 2025-04-26)
+        - Created useNavigation hook for keyboard/touch navigation
+        - Created useAutoSwipe hook for page transitions
+        - Created google-sheets.ts utility for API interactions
     -   [ ] Write or update unit tests for key components and API routes
-    -   [ ] Verify that the dev server still runs cleanly and there are no console errors
+    -   [x] Verify that the dev server still runs cleanly and there are no console errors (completed 2025-04-26)
+        - Fixed CSS processing issues with Tailwind
+        - Ensured proper imports and dependencies
 
 ### Backlog
 
