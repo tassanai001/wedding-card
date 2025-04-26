@@ -35,53 +35,48 @@
         - Fixed CSS processing issues with Tailwind
         - Ensured proper imports and dependencies
 
-### Backlog
+## Backlog
 
--   **Milestone 1: Initialize Next.js Project & Install Dependencies**
-    -   [ ] Create a new Next.js app (`npx create-next-app@latest google-photos-gallery`, `cd google-photos-gallery`)
-    -   [ ] Install HTTP client and styling libraries (`npm install axios swr tailwindcss postcss autoprefixer`, `npx tailwindcss init -p`)
-    -   [ ] Configure Tailwind CSS (content, import in `styles/globals.css`)
-    -   [ ] Establish a **mobile-first** base (responsive breakpoints, viewport meta tag)
-    -   [ ] Create helper folders (`mkdir components lib pages/api`)
--   **Milestone 2: Google Cloud Setup & OAuth Credentials**
-    -   [ ] Go to Google Cloud Console and **create or select** a project
-    -   [ ] Enable the **Google Photos Library API**
-    -   [ ] In “APIs & Services” → “Credentials”, **Create OAuth Client ID**
-    -   [ ] Download the JSON credentials file and add its values to a `.env.local`
--   **Milestone 3: Implement OAuth 2.0 Flow in Next.js**
-    -   [ ] Install an OAuth helper or roll your own (`npm install next-auth`)
-    -   [ ] Configure NextAuth in `pages/api/auth/[...nextauth].js`
-    -   [ ] Add “Sign in with Google” button on `/pages/index.js` using `useSession()`
--   **Milestone 4: Fetching Media Items from Google Photos**
-    -   [ ] Create an API route `pages/api/photos.js`
-    -   [ ] In a page or component, fetch via SWR
--   **Milestone 5: UI Enhancements, Mobile-Responsive & Deployment**
-    -   [ ] Build a **responsive grid** for the gallery
-    -   [ ] Ensure images scale and crop correctly on all viewports
-    -   [ ] Add **navigation/menu** suited for mobile
-    -   [ ] Integrate a **lightbox** that supports swipe gestures on touch devices
-    -   [ ] Implement **infinite scroll** or “Load more” button optimized for mobile data usage
-    -   [ ] Polish styling
-    -   [ ] Accessibility and testing
-    -   [ ] Secure and deploy
--   **Milestone 6: Download & Social Sharing Features**
-    -   [ ] **Download button** on each photo card
-    -   [ ] **Native Web Share API** fallback
-    -   [ ] **Facebook share**
-    -   [ ] **Instagram share** (via Web Share API on mobile)
-    -   [ ] **Share modal component**
-    -   [ ] **Accessibility & analytics**
+### Milestone 1: Landing Page Revamp & Design
+- [ ] Replace current scaffolded landing page with a Pinterest-inspired hero layout
+- [ ] Design hero section showing a preview masonry grid of featured media cards
+- [ ] Implement call-to-action overlay on hero cards (“Explore Gallery”)
+- [ ] Apply Tailwind for:
+  - Full-width background image or gradient
+  - 2xl rounded corners & soft shadows on cards
+  - Smooth hover transitions
+- [ ] Ensure mobile-first responsiveness (collapsing nav, stacked hero cards)
+- [ ] Wire up “Explore Gallery” to route into the authenticated gallery page
 
-### Milestones
+### Milestone 2: Google Cloud & OAuth Credentials
+- [ ] Create or select a Google Cloud project
+- [ ] Enable **Google Photos Library API**
+- [ ] Generate OAuth 2.0 Client ID & Secret
+- [ ] Add credentials to `.env` (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`)
 
--   Milestone 0: Revamp & Refactoring Existing Codebase
--   Milestone 1: Initialize Next.js Project & Install Dependencies
--   Milestone 2: Google Cloud Setup & OAuth Credentials
--   Milestone 3: Implement OAuth 2.0 Flow in Next.js
--   Milestone 4: Fetching Media Items from Google Photos
--   Milestone 5: UI Enhancements, Mobile-Responsive & Deployment
--   Milestone 6: Download & Social Sharing Features
+### Milestone 3: Media Retrieval & Caching
+- [ ] Implement `/pages/api/photos.ts` to call Google Photos API
+- [ ] Write a `usePhotos` hook (SWR) with pagination/infinite-scroll support
 
-### Discovered During Work
+### Milestone 4: Pinterest-Style Gallery Layout
+- [ ] Install and configure a masonry library (e.g. `react-masonry-css`)
+- [ ] Create `<MasonryGrid>` and `<MediaCard>` components
+- [ ] Apply Tailwind styling for:
+  - Variable-height cards
+  - Rounded corners (2xl) & soft shadows
+  - Hover overlay with title + “View” button
+- [ ] Ensure a fully responsive, mobile-first grid
 
-*(This section would be populated as development progresses and new tasks or issues are identified)*
+### Milestone 5: Full-Screen Preview & Actions
+- [ ] Build `<MediaModal>` to show image/video full-screen
+- [ ] Display title, description, and metadata (EXIF)
+- [ ] Add **Download** button (preserving original filename/quality)
+- [ ] Add **Share** buttons:
+  - Facebook
+  - Twitter (X)
+  - Web Share API fallback for mobile
+
+### Milestone 6: Performance, Testing & QA
+- [ ] Use Next.js `<Image>` for optimized loading + lazy placeholders
+- [ ] Audit bundle size; split heavy components with `next/dynamic`
+---
