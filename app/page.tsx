@@ -5,6 +5,8 @@ import VideoBackground from "./components/ui/VideoBackground";
 import PageIndicator from "./components/ui/PageIndicator";
 import WeddingPage from "./components/ui/WeddingPage";
 import RsvpButton from "./components/rsvp/RsvpButton";
+import Navigation from "./components/ui/Navigation";
+import LandingPage from "./components/landing/LandingPage";
 import { useNavigation } from "./hooks/useNavigation";
 import { useAutoSwipe } from "./hooks/useAutoSwipe";
 import { TOTAL_PAGES } from "./lib/constants";
@@ -14,6 +16,7 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); // Add key for animation reset
+  const [currentView, setCurrentView] = useState<'landing' | 'card'>('landing'); // Default to landing page
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Function to change page with video restart
@@ -33,16 +36,19 @@ export default function Home() {
   };
 
   // Use custom hooks for navigation and auto-swiping
+  // Only enable these when in card view
   useNavigation({
     currentPage,
     totalPages: TOTAL_PAGES,
-    onPageChange: changePage
+    onPageChange: changePage,
+    enabled: currentView === 'card'
   });
 
   useAutoSwipe({
     currentPage,
     totalPages: TOTAL_PAGES,
-    onPageChange: changePage
+    onPageChange: changePage,
+    enabled: currentView === 'card'
   });
 
   // Initialize on client-side only
@@ -50,34 +56,54 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
+  // Handle view change between landing page and wedding card
+  const handleViewChange = (view: 'landing' | 'card') => {
+    setCurrentView(view);
+    // Reset to first page when switching to card view
+    if (view === 'card') {
+      setCurrentPage(0);
+      setAnimationKey(prev => prev + 1);
+    }
+  };
+
   return (
     <div className="container">
-      <VideoBackground />
+      {/* Navigation */}
+      <Navigation currentView={currentView} onViewChange={handleViewChange} />
 
-      {/* Content pages */}
-      <div className="content-container">
-        {/* Map through pages */}
-        {Array.from({ length: TOTAL_PAGES }).map((_, index) => (
-          <WeddingPage
-            key={`wedding-page-${index}`}
-            pageIndex={index}
-            currentPage={currentPage}
-            animationKey={animationKey}
-          />
-        ))}
-      </div>
+      {/* Conditional rendering based on current view */}
+      {currentView === 'landing' ? (
+        <LandingPage />
+      ) : (
+        <>
+          <VideoBackground />
 
-      {/* Page indicator dots */}
-      {isMounted && (
-        <PageIndicator
-          currentPage={currentPage}
-          totalPages={TOTAL_PAGES}
-          onPageChange={changePage}
-        />
+          {/* Content pages */}
+          <div className="content-container">
+            {/* Map through pages */}
+            {Array.from({ length: TOTAL_PAGES }).map((_, index) => (
+              <WeddingPage
+                key={`wedding-page-${index}`}
+                pageIndex={index}
+                currentPage={currentPage}
+                animationKey={animationKey}
+              />
+            ))}
+          </div>
+
+          {/* Page indicator dots */}
+          {isMounted && (
+            <PageIndicator
+              currentPage={currentPage}
+              totalPages={TOTAL_PAGES}
+              onPageChange={changePage}
+            />
+          )}
+
+          {/* RSVP Component */}
+          <RsvpButton />
+        </>
       )}
-
-      {/* RSVP Component */}
-      <RsvpButton />
     </div>
   );
 }

@@ -8,6 +8,7 @@ interface NavigationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (newPage: number) => void;
+  enabled?: boolean;
 }
 
 /**
@@ -15,17 +16,22 @@ interface NavigationProps {
  * @param currentPage Current active page
  * @param totalPages Total number of pages
  * @param onPageChange Callback for page change
+ * @param enabled Whether navigation is enabled (default: true)
  */
-export const useNavigation = ({ currentPage, totalPages, onPageChange }: NavigationProps) => {
+export const useNavigation = ({ currentPage, totalPages, onPageChange, enabled = true }: NavigationProps) => {
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (!enabled) return;
+    
     if (e.key === 'ArrowRight' && currentPage < totalPages - 1) {
       onPageChange(currentPage + 1);
     } else if (e.key === 'ArrowLeft' && currentPage > 0) {
       onPageChange(currentPage - 1);
     }
-  }, [currentPage, totalPages, onPageChange]);
+  }, [currentPage, totalPages, onPageChange, enabled]);
 
   const handleSwipe = useCallback((touchStartX: number, touchEndX: number) => {
+    if (!enabled) return;
+    
     const distance = touchStartX - touchEndX;
     const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
     const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
@@ -37,9 +43,11 @@ export const useNavigation = ({ currentPage, totalPages, onPageChange }: Navigat
       // Swipe right to go to previous page
       onPageChange(currentPage - 1);
     }
-  }, [currentPage, totalPages, onPageChange]);
+  }, [currentPage, totalPages, onPageChange, enabled]);
 
   useEffect(() => {
+    if (!enabled) return;
+    
     // Touch event handlers
     let touchStartX = 0;
     let touchEndX = 0;
@@ -76,5 +84,5 @@ export const useNavigation = ({ currentPage, totalPages, onPageChange }: Navigat
       }
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleKeyDown, handleSwipe]);
+  }, [handleKeyDown, handleSwipe, enabled]);
 };

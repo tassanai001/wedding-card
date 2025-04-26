@@ -38,15 +38,29 @@
 ## Backlog
 
 ### Milestone 1: Landing Page Revamp & Design
-- [ ] Replace current scaffolded landing page with a Pinterest-inspired hero layout
-- [ ] Design hero section showing a preview masonry grid of featured media cards
-- [ ] Implement call-to-action overlay on hero cards (“Explore Gallery”)
-- [ ] Apply Tailwind for:
+- [x] Replace current scaffolded landing page with a Pinterest-inspired hero layout (completed 2025-04-26)
+  - Created HeroSection and LandingPage components with modern design
+  - Implemented toggle between landing page and wedding card views
+  - Added responsive navigation component
+- [x] Design hero section showing a preview masonry grid of featured media cards (completed 2025-04-26)
+  - Created masonry grid layout with variable heights for visual interest
+  - Used existing fallback image with different aspect ratios
+  - Added proper spacing and responsive grid columns
+- [x] Implement call-to-action overlay on hero cards ("Explore Gallery") (completed 2025-04-26)
+  - Added hover effect with gradient overlay
+  - Included "View" button and "Explore Gallery" text
+  - Implemented smooth transition animations
+- [x] Apply Tailwind for: (completed 2025-04-26)
   - Full-width background image or gradient
   - 2xl rounded corners & soft shadows on cards
   - Smooth hover transitions
-- [ ] Ensure mobile-first responsiveness (collapsing nav, stacked hero cards)
-- [ ] Wire up “Explore Gallery” to route into the authenticated gallery page
+- [x] Ensure mobile-first responsiveness (collapsing nav, stacked hero cards) (completed 2025-04-26)
+  - Implemented responsive grid layout (1, 2, or 3 columns based on screen size)
+  - Created mobile-friendly navigation
+  - Used proper spacing and text sizing for different viewports
+- [x] Wire up "Explore Gallery" to route into the authenticated gallery page (completed 2025-04-26)
+  - Added Link component for gallery navigation
+  - Created CTA button for exploring the full gallery
 
 ### Milestone 2: Google Cloud & OAuth Credentials
 - [ ] Create or select a Google Cloud project

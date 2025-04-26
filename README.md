@@ -12,6 +12,7 @@ This application is a digital wedding invitation for Num & Art (Parichat Hongon 
 - Decorative floral-themed background video
 - RSVP functionality with Google Sheets integration
 - Mobile-first responsive design
+- Pinterest-inspired landing page with masonry grid gallery preview
 
 ## Tech Stack
 
@@ -29,6 +30,7 @@ wedding-card/
 │   ├── api/
 │   │   └── rsvp/         # API endpoint for RSVP submissions
 │   ├── components/
+│   │   ├── landing/      # Landing page components
 │   │   ├── rsvp/         # RSVP-related components
 │   │   └── ui/           # Reusable UI components
 │   ├── hooks/            # Custom React hooks
@@ -71,6 +73,8 @@ wedding-card/
 
 ## Usage
 
+- The application starts with a Pinterest-inspired landing page featuring a masonry grid of wedding photos.
+- Users can navigate between the landing page and wedding invitation using the navigation menu.
 - The wedding invitation automatically transitions between pages every 10 seconds.
 - Users can navigate using:
   - Swipe gestures on touch devices
@@ -90,6 +94,11 @@ The application can be deployed to Vercel or any other hosting platform that sup
 ## Changelog
 
 ### April 26, 2025
+- Implemented Pinterest-inspired landing page with masonry grid gallery preview
+- Added navigation between landing page and wedding invitation
+- Created responsive hero section with call-to-action overlays
+- Applied Tailwind styling with rounded corners, shadows, and hover effects
+- Ensured mobile-first responsive design for all new components
 - Refactored codebase for better organization and maintainability
 - Extracted reusable components and custom hooks
 - Added proper TypeScript typing
